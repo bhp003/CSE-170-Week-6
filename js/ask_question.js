@@ -10,9 +10,11 @@ function ask() {
       alert("Please select a course");
     else {
       console.log(course);
-      var ref = firebase.firestore().collection("Courses");
-      ref.doc(course).collection("Questions").doc(title).set({question: desc}).then(() => {
-        window.location.href = "Project/../cse170/cse170.html"
+      var ref = firebase.firestore().collection("Courses/CSE 170/Questions");
+      ref.get().then((list) => {
+        ref.doc("Question " + (list.size + 1)).set({question: desc}).then(() => {
+          window.location.href = "Project/../cse170/cse170.html"
+        });
       });
     }
   });

@@ -13,7 +13,7 @@ function getQuestion() {
       id++;
       
       post.addEventListener("click", (e) => {
-        window.location.href = "Project/../question/question1.html";
+        window.location.href = "Project/../question/question" + (id - 1) + ".html";
       });
     });
   });
